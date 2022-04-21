@@ -1,9 +1,30 @@
 package pokoje;
 
 public class Rodzina extends Pokoj{
-    private final static String nazwa = "rodzina";
+    public final static String nazwa = "rodzina";
 
-    public Rodzina(String rodzaj, int iloscDni, boolean sniadanie) {
-        super(rodzaj, iloscDni, sniadanie);
+    public Rodzina(Rodzina r) {
+        super();
+        this.typ = r.pobierzTyp();
+        this.iloscDni = r.iloscDni;
+        this.sniadanie = r.sniadanie;
+    }
+
+    public Rodzina(String typ, int iloscDni, boolean sniadanie) {
+        super(typ, iloscDni, sniadanie);
+    }
+
+    @Override
+    public String toString() {
+        String myString = "";
+        myString = myString + nazwa + " " + pobierzTyp() + " " + pobierzIloscDni()+ " " + czySniadanie() + "\n";
+        return myString;
+    }
+
+    public int porownywanie(PokojCennik p) {
+        String rodzaj = p.pobierzRodzaj();
+        String typ = p.pobierzTyp();
+        if (this.nazwa.equals(rodzaj) && this.pobierzTyp().equals(typ)) return 0;
+        return 1;
     }
 }

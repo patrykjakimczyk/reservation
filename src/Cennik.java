@@ -1,31 +1,28 @@
+import pokoje.PokojCennik;
+
 import java.util.ArrayList;
 
 public class Cennik {
-    private ArrayList<pokojCennik> listaCennik;
+    private static Cennik instance = null;
+    private ArrayList<PokojCennik> listaCennik;
 
     public Cennik() {
-        this.listaCennik = null;
+        this.listaCennik = new ArrayList<PokojCennik>();
     }
 
     public static Cennik pobierzCennik() {
+        if (instance == null) {
+            instance = new Cennik();
+        }
+        return instance;
+    }
 
+    public ArrayList<PokojCennik> pobierzListe() {
+        return this.listaCennik;
     }
 
     public void dodaj(String rodzaj, String typ, double cenaDoba, double cenaSniadanie) {
-        listaCennik.add(new pokojCennik(rodzaj, typ, cenaDoba, cenaSniadanie));
+        listaCennik.add(new PokojCennik(rodzaj, typ, cenaDoba, cenaSniadanie));
     }
 
-    class pokojCennik {
-            private String rodzaj;
-            private String typ;
-            private double cenaDoba;
-            private double cenaSniadanie;
-
-            public pokojCennik(String rodzaj, String typ, double cenaDoba, double cenaSniadanie) {
-                this.rodzaj = rodzaj;
-                this.typ = typ;
-                this.cenaDoba = cenaDoba;
-                this.cenaSniadanie = cenaSniadanie;
-            }
-    }
 }
