@@ -31,19 +31,6 @@ public abstract class Pokoj implements Cloneable{
         this.sniadanie = sniadanie;
     }
 
-    @Override
-    public Pokoj clone() {
-        Pokoj clone = null;
-        try {
-            clone = (Pokoj)super.clone();
-            clone.setTyp((String)this.typ.clone());
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-
-        return clone;
-    }
-
     public String pobierzTyp() {
         return typ;
     }

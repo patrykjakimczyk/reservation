@@ -4,10 +4,7 @@ public class Trojka extends Pokoj{
     public final static String nazwa = "trojka";
 
     public Trojka(Trojka t) {
-        super();
-        this.typ = t.pobierzTyp();
-        this.iloscDni = t.iloscDni;
-        this.sniadanie = t.sniadanie;
+        this.clone(t);
     }
 
     public Trojka(String typ, int iloscDni, boolean sniadanie) {
@@ -20,6 +17,12 @@ public class Trojka extends Pokoj{
         myString = myString + nazwa + " " + pobierzTyp() + " " + pobierzIloscDni()+ " " + czySniadanie() + "\n";
         return myString;
     }
+    public void clone(Trojka t) {
+        this.setTyp(t.pobierzTyp());
+        this.setIloscDni(t.pobierzIloscDni());
+        this.setSniadanie(t.czySniadanie());
+    }
+
     public int porownywanie(PokojCennik p) {
         String rodzaj = p.pobierzRodzaj();
         String typ = p.pobierzTyp();

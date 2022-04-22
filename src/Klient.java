@@ -51,30 +51,34 @@ public class Klient {
                         System.out.println(pokoje.get(j));
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
+                    break;
                 } else if (pokoje.get(j) instanceof Dwojka) {
                     Dwojka dwojka = (Dwojka) pokoje.get(j);
-                    if (dwojka.porownywanie(pokojeCennik.get(i)) == 0) {
+                    if (dwojka.porownywanie(pokojeCennik.get(i)) != 0) {
                         System.out.println(pokoje.get(j));
                         k.pobierzKoszyk().wypakuj(pokoje.get(j));
                     } else {
                         System.out.println(pokoje.get(j));
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
+                    break;
                 } else if (pokoje.get(j) instanceof Trojka) {
                     Trojka trojka = (Trojka) pokoje.get(j);
-                    if (trojka.porownywanie(pokojeCennik.get(i)) == 0) {
+                    if (trojka.porownywanie(pokojeCennik.get(i)) != 0) {
                         k.pobierzKoszyk().wypakuj(pokoje.get(j));
                     } else {
                         System.out.println(pokoje.get(j));
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
+                    break;
                 } else if (pokoje.get(j) instanceof Rodzina) {
                     Rodzina rodzina = (Rodzina) pokoje.get(j);
-                    if (rodzina.porownywanie(pokojeCennik.get(i)) == 0) {
+                    if (rodzina.porownywanie(pokojeCennik.get(i)) != 0) {
                         k.pobierzKoszyk().wypakuj(pokoje.get(j));
                     } else {
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
+                    break;
                 }
             }
         }

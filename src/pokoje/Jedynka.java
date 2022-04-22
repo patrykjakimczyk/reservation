@@ -10,10 +10,7 @@ public class Jedynka extends Pokoj{
     }
 
     public Jedynka(Jedynka j) {
-        super();
-        this.typ = j.pobierzTyp();
-        this.iloscDni = j.iloscDni;
-        this.sniadanie = j.sniadanie;
+        this.clone(j);
     }
 
     @Override
@@ -21,6 +18,12 @@ public class Jedynka extends Pokoj{
         String myString = "";
         myString = myString + nazwa + " " + pobierzTyp() + " " + pobierzIloscDni()+ " " + czySniadanie() + "\n";
         return myString;
+    }
+
+    public void clone(Jedynka j) {
+        this.setTyp(j.pobierzTyp());
+        this.setIloscDni(j.pobierzIloscDni());
+        this.setSniadanie(j.czySniadanie());
     }
 
     public int porownywanie(PokojCennik p) {
