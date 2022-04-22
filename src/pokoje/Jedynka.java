@@ -29,7 +29,12 @@ public class Jedynka extends Pokoj{
     public int porownywanie(PokojCennik p) {
         String rodzaj = p.pobierzRodzaj();
         String typ = p.pobierzTyp();
-        if (this.nazwa.equals(rodzaj) && this.pobierzTyp().equals(typ)) return 0;
+        if (this.nazwa.equals(rodzaj) && this.typ.equals(typ)) return 0;
+        return 1;
+    }
+
+    public int porownywanie(Jedynka j) {
+        if (this.nazwa.equals(j.nazwa) && this.typ.equals(j.typ)) return 0;
         return 1;
     }
 }

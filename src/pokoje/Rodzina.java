@@ -30,4 +30,9 @@ public class Rodzina extends Pokoj{
         if (this.nazwa.equals(rodzaj) && this.pobierzTyp().equals(typ)) return 0;
         return 1;
     }
+
+    public int porownywanie(Rodzina r) {
+        if (this.nazwa.equals(r.nazwa) && this.typ.equals(r.typ)) return 0;
+        return 1;
+    }
 }

@@ -3,9 +3,9 @@ import pokoje.Jedynka;
 import pokoje.Trojka;
 
 public class BookingTest {
-//    static int cena(Koszyk k, String typ) {
-//        /*<- tu trzeba wpisać ciało metody */
-//    }
+    static int cena(Koszyk k, String typ) {
+        /*<- tu trzeba wpisać ciało metody */
+    }
 
     public static void main(String[] args) {
 
@@ -48,10 +48,10 @@ public class BookingTest {
 
         // Co jest w koszyku klienta ocean
         System.out.println("Po przepakowaniu, koszyk klienta " + koszykOceanu);
-//
-//        // Ile wynosi cena wszystkich pokoi typu standardowego w koszyku klienta ocean
-//        System.out.println("Pokoje standardowe w koszyku klienta ocean kosztowały:  "
-//                + cena(koszykOceanu, "standard"));
+
+        // Ile wynosi cena wszystkich pokoi typu standardowego w koszyku klienta ocean
+        System.out.println("Pokoje standardowe w koszyku klienta ocean kosztowały:  "
+                + cena(koszykOceanu, "standard"));
 //
 //        // Klient zapłaci...
 //        ocean.zaplac("karta");	// płaci kartą płatniczą, bez prowizji

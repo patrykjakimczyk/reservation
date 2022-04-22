@@ -45,40 +45,52 @@ public class Klient {
             for (int j = 0; j < pokoje.size(); j++) {
                 if (pokoje.get(j) instanceof Jedynka) {
                     Jedynka jedynka = (Jedynka) pokoje.get(j);
-                    if (jedynka.porownywanie(pokojeCennik.get(i)) != 0) {
-                        k.pobierzKoszyk().wypakuj(pokoje.get(j));
-                    } else {
-                        System.out.println(pokoje.get(j));
+                    if (jedynka.porownywanie(pokojeCennik.get(i)) == 0) {
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
-                    break;
                 } else if (pokoje.get(j) instanceof Dwojka) {
                     Dwojka dwojka = (Dwojka) pokoje.get(j);
-                    if (dwojka.porownywanie(pokojeCennik.get(i)) != 0) {
-                        System.out.println(pokoje.get(j));
-                        k.pobierzKoszyk().wypakuj(pokoje.get(j));
-                    } else {
-                        System.out.println(pokoje.get(j));
+                    if (dwojka.porownywanie(pokojeCennik.get(i)) == 0) {
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
-                    break;
                 } else if (pokoje.get(j) instanceof Trojka) {
                     Trojka trojka = (Trojka) pokoje.get(j);
-                    if (trojka.porownywanie(pokojeCennik.get(i)) != 0) {
-                        k.pobierzKoszyk().wypakuj(pokoje.get(j));
-                    } else {
-                        System.out.println(pokoje.get(j));
+                    if (trojka.porownywanie(pokojeCennik.get(i)) == 0) {
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
-                    break;
                 } else if (pokoje.get(j) instanceof Rodzina) {
                     Rodzina rodzina = (Rodzina) pokoje.get(j);
-                    if (rodzina.porownywanie(pokojeCennik.get(i)) != 0) {
-                        k.pobierzKoszyk().wypakuj(pokoje.get(j));
-                    } else {
+                    if (rodzina.porownywanie(pokojeCennik.get(i)) == 0) {
                         this.listaKlienta.wypakuj(pokoje.get(j));
                     }
-                    break;
+                }
+            }
+        }
+
+
+        List<Pokoj> pokojeKoszyk = k.pobierzKoszyk().pobierzListaZ();
+        for (int i = 0; i < pokoje.size(); i++) {
+            for (int j = 0; j < pokojeKoszyk.size(); j++) {
+                if (pokoje.get(i) instanceof Jedynka && pokojeKoszyk.get(j) instanceof Jedynka) {
+                    Jedynka jedynka = (Jedynka) pokojeKoszyk.get(j);
+                    if (jedynka.porownywanie((Jedynka) pokoje.get(i)) == 0) {
+                        k.pobierzKoszyk().wypakuj(pokojeKoszyk.get(j));
+                    }
+                } else if (pokoje.get(i) instanceof Dwojka && pokojeKoszyk.get(j) instanceof Dwojka) {
+                    Dwojka dwojka = (Dwojka) pokojeKoszyk.get(j);
+                    if (dwojka.porownywanie((Dwojka) pokoje.get(i)) == 0) {
+                        k.pobierzKoszyk().wypakuj(pokojeKoszyk.get(j));
+                    }
+                } else if (pokoje.get(i) instanceof Trojka && pokojeKoszyk.get(j) instanceof Trojka) {
+                    Trojka trojka = (Trojka) pokojeKoszyk.get(j);
+                    if (trojka.porownywanie((Trojka) pokoje.get(i)) == 0) {
+                        k.pobierzKoszyk().wypakuj(pokojeKoszyk.get(j));
+                    }
+                } else if (pokoje.get(i) instanceof Rodzina && pokojeKoszyk.get(j) instanceof Rodzina) {
+                    Rodzina rodzina = (Rodzina) pokojeKoszyk.get(j);
+                    if (rodzina.porownywanie((Rodzina) pokoje.get(i)) == 0) {
+                        k.pobierzKoszyk().wypakuj(pokojeKoszyk.get(j));
+                    }
                 }
             }
         }

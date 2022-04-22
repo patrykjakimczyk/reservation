@@ -29,4 +29,9 @@ public class Trojka extends Pokoj{
         if (this.nazwa.equals(rodzaj) && this.typ.equals(typ)) return 0;
         return 1;
     }
+
+    public int porownywanie(Trojka t) {
+        if (this.nazwa.equals(t.nazwa) && this.typ.equals(t.typ)) return 0;
+        return 1;
+    }
 }
